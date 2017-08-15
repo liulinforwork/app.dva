@@ -17,8 +17,8 @@ const Routers = function ({ history, app }) {
       getIndexRoute (nextState, cb) {
         require.ensure([], (require) => {
           // registerModel(app, require('models/dashboard'))
-          cb(null, { component: require('./routes/products/Products') })
-        }, 'products')
+          cb(null, { component: require('./routes/main/Main') })
+        }, 'main')
       },
       childRoutes: [
         {
@@ -26,8 +26,8 @@ const Routers = function ({ history, app }) {
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
               // registerModel(app, require('models/dashboard'))
-              cb(null, require('./routes/products/Products'))
-            }, 'products')
+              cb(null, require('./routes/main/Main'))
+            }, 'main')
           },
         },
         {
