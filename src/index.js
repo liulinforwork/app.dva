@@ -1,21 +1,15 @@
 import dva from 'dva';
 
 // 1. Initialize
-const app = dva({
-  initialState:{
-    products:[
-      {name:'dva',id:1},
-      {name:'react',id:2}
-    ]
-  }
-});
+const app = dva();
 
 // 2. Plugins
 // app.use({});
 
 // 3. Model
 // app.model(require('./models/example'));
-app.model(require('./models/products/products'));
+// app.model(require('./models/products/products'));
+// 修改为改变路由时 model按需加载
 
 
 // 4. Router

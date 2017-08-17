@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+import { connect } from 'dva'
 import { Button, Table } from 'antd';
 import styles from './Quick.css';
 
-const Quick = () => {
+const Quick = ({ quick }) => {
+    const { list } = quick;
 
     const dataSource = [{
         key: '1',
@@ -34,13 +37,16 @@ const Quick = () => {
     return (
         <div>
             <h2>快捷语列表</h2>
+            <h2>{list}</h2>
             <p className={styles.info}>快捷语用于项目现场照片时填写不合格原因</p>
-            
             <Button type="primary" style={{margin:20,marginLeft:0}}>添加快捷语</Button>
             <Table dataSource={dataSource} columns={columns} />
-
         </div>
     )
 }
 
-export default Quick;
+Quick.propTypes = {
+    quick: PropTypes.object,
+}
+
+export default connect(({ quick }) => ({ quick }))(Quick);

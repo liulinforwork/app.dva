@@ -70,7 +70,7 @@ const Routers = function ({ history, app }) {
           path: 'quick',
           getComponent (nextState, cb) {
             require.ensure([], (require) => {
-              // registerModel(app, require('models/dashboard'))
+              registerModel(app, require('./models/quick'))
               cb(null, require('./routes/quick/Quick'))
             }, 'quick')
           },
